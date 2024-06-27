@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo cliente{% endblock title %}
+{% block content %}
+  <div class="caixa">
+    <h2 class="mb-3">Cadastro de cliente</h2>
+    <form action="{% url 'new_client' %}" method="post" class="form border border-primary rounded p-2 form-caixa">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary form-control mt-2">Cadastrar</button>
+    </form>
+  </div>
+{% endblock content %}

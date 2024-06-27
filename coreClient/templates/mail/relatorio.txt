@@ -1,0 +1,11 @@
+Olá, {{nome}}!
+Aqui estão algumas informações sobre o seu serviço.
+
+Serviço realizado: {{servico}}
+Data do serviço: {{data_servico}}
+Data prevista para o próximo serviço: {{data_servico_futuro}}
+
+Telefone para contato: (85) 9 9603-4211
+Email para contato: <a href="mailto:welitondomingoswr@gmail.com">welitondomingoswr@gmail.com
+
+Obrigado pela escolha e confiança no meu trabalho! Tenha uma ótima semana.

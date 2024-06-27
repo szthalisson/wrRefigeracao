@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial{% endblock title %}
+{% block content %}
+  <div class="sub-header">
+    <h1>Centro de Controle</h1>
+    <p>Seja bem vindo, Weliton! Logo abaixo estão os seus clientes cadastrados, em que você pode remover, editar ou vincular novos.</p>
+  </div>
+  
+  <div class="clients">
+    <div class="clients-header">
+      <h2>Clientes</h2>
+      <a href="{% url 'new_client' %}" class="btn btn-primary">Adicionar novo cliente</a>
+    </div>
+    <div class="clients-main">
+      {% for client in clients %}
+      <div class="client">
+        <div class="about">
+          <div class="client-topic">
+            <h3>Cliente</h3>
+            <div class="info">
+              <span class="info-t">Nome</span><br>
+              <span class="info-r">{{client.nome | capfirst }}</span>
+            </div>
+            <div class="info">
+              <span class="info-t">Email</span><br>
+              <span class="info-r">{{client.email}}</span>
+            </div>
+          </div>
+          <div class="client-topic">
+            <h3>Serviço</h3>
+            <div class="info">
+              <span class="info-t">Serviço realizado</span><br>
+              <span class="info-r">{{client.servico}}</span>
+            </div>
+            <div class="info">
+              <span class="info-t">Data do serviço</span><br>
+              <span class="info-r">{{client.data_servico | date:'d/m/Y'}}</span>
+            </div>
+            <div class="info">
+              <span class="info-t">Data do próximo serviço</span><br>
+              <span class="info-r">{{client.data_servico_futuro | date:'d/m/Y'}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="options">
+          <a href="{% url 'send_email' client.id %}" class="btn btn-primary">Enviar relatório</a>
+          <a href="{% url 'edit_client' client.id %}" class="btn btn-secondary">Editar</a>
+          <a href="{% url 'remove_client' client.id %}" class="btn btn-danger">Remover</a>
+        </div>
+      </div>
+      {% empty %}
+      <div class="aviso">
+        não há clientes cadastrados. <a href="{% url 'new_client' %}">Cadastre agora!</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

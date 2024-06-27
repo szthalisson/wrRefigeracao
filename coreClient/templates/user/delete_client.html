@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="caixa">
+    <h1>Confirmar Exclusão</h1>
+    <p>Tem certeza de que deseja excluir o cliente "{{ object }}"?</p>
+    
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-outline-danger me-2">Sim, quero excluir</button>
+      <a href="{% url 'index' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </form>
+  </div>
+{% endblock %}
